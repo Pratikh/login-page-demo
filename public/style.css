@@ -1,0 +1,17 @@
+body {
+  background-color: #9c27b0;
+}
+
+.center-align-div {
+  position: fixed;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.jumbotron-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    border-radius: 10px;
+    background-color: #03a9f4;
+}

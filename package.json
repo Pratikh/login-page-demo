@@ -1,0 +1,74 @@
+{
+  "name": "login-page",
+  "version": "1.0.0",
+  "description": "Building example login page to practice basics",
+  "mode": "development",
+  "main": "src/index.js",
+  "homepage": "https://gitlab.com/Guru.h121/login-page#readme",
+  "engines": {
+    "npm": "6.4.1",
+    "node": "10.15.3"
+  },
+  "scripts": {
+    "start": "BABEL_ENV=app WEBPACK_ENV=dev  webpack-dev-server --config webpack.config.js --hot --progress --bail && node src/server/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run start\"",
+    "server": "nodemon src/server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "clobber": "rm -rf node_modules/ build/ dist/ coverage/ && npm cache clean --force",
+    "clean-install": "npm run clobber && npm install && npm prune && npm dedupe"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/Guru.h121/login-page.git"
+  },
+  "author": {
+    "name": "Pratik/Guru",
+    "email": "guru.h121@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Guru.h121/login-page/issues",
+    "email": "guru.h121@gmail.com"
+  },
+  "contributors": [
+    " Me and my-self"
+  ],
+  "private": false,
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "concurrently": "^5.2.0",
+    "css-loader": "^3.4.1",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^2.0.4",
+    "style-loader": "^1.1.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "bootstrap": "^4.5.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "less-loader": "^6.2.0",
+    "lodash": "^4.17.19",
+    "mongodb": "^3.5.9",
+    "mongodb-memory-server": "^6.6.1",
+    "postcss-loader": "^3.0.0",
+    "react": "^16.12.0",
+    "react-bootstrap": "^1.2.1",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2"
+  },
+  "proxy": "http://localhost:4000"
+}
