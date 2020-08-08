@@ -4,6 +4,9 @@
  module.exports = merge(common, {
    mode: 'development',
    devtool: 'inline-source-map',
+   target: 'web',
+   watch: true,
+   cache: true,
    devServer: {
      port: 3000,
      open: true,

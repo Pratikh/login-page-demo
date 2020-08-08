@@ -11,9 +11,6 @@ module.exports = {
     publicPath: '/',
     filename: 'main.js',
   },
-  target: 'web',
-  watch: true,
-  cache: true,
   module: {
     rules: [
       {
