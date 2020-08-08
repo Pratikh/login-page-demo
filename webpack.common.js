@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  mode: 'development',
   entry: {
     path: path.resolve(__dirname, 'src'),
   },
@@ -13,21 +12,7 @@ module.exports = {
     filename: 'main.js',
   },
   target: 'web',
-  devtool: 'source-map',
   watch: true,
-  devServer: {
-    port: 3000,
-    open: true,
-    liveReload: true,
-    overlay: {
-      warnings: true,
-      errors: true,
-    },
-    historyApiFallback: true,
-    proxy: {
-      '/api': 'http://localhost:8082',
-    },
-  },
   cache: true,
   module: {
     rules: [
