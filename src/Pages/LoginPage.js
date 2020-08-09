@@ -6,11 +6,11 @@ import {
   Button, Container, Form, Jumbotron,
 } from 'react-bootstrap';
 
-
+let HOST = 'http://localhost:8085';
+if(process.env.NODE_ENV === 'production'){ // If its deployed then serve static HTML pages.
+  HOST = window.location.host;
+}
 const _ = require('lodash');
-
-
-// const proxy = 'http://localhost:4000';
 
 export default class LoginPage extends Component {
   constructor(props) {
@@ -25,43 +25,21 @@ export default class LoginPage extends Component {
     window.display = this;
   }
 
-  componentDidMount() {
-    // this.data = null;
-    // const aa = fetch(`${proxy}api/test`).then((a) => a.json()).then((userData) => {
-    //   this.setState({ userData });
-    //   this.data = userData;
-    // });
-    // console.log('component is mounted', aa, this.state);
-    // this.props.history.push('/home');
-    // this.props.history
-    // fetch('http://localhost:4000/api/test').then((a) => a.text()).then((a) => console.log(a)).catch(() => {
-    //   console.log('server is not running');
-    // });
-    console.log(this.state);
-    // console.log(Container);
-  }
-
   async onSubmitButtonClick(e) {
     e.preventDefault();
     console.log('Button on clicked HERE', this.userName, this.userPassword);
-    // const userData = JSON.stringify({
-    //   userName: 'guru',
-    //   password: 'guru',
-    // });
-    // await fetch(`${proxy}/api/users`, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: userData,
-    // }).then((res) => res.text()).then((res) => console.log(res));
-
-    // result.then(() => {
-    //   console.log('successfull');
-    // }).catch((error) => {
-    //   console.log('error', error);
-    // });
-    // console.log('result', result);
+    const userData = JSON.stringify({
+      username: this.userName,
+      password: this.userPassword,
+    });
+    const isUser = await fetch(`${HOST}/isUserValid`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: userData,
+    }).then((res) => res.text());
+    console.log(isUser);
   }
 
   get userName() {
