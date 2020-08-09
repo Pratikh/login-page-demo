@@ -10,7 +10,6 @@ const uri = 'mongodb+srv://admin:admin@cluster0-mkysu.mongodb.net/';
 const app = express();
 app.use(bodyParser.json())
 app.use(cors());
-console.log(process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'production'){ // If its deployed then serve static HTML pages.
   app.use(express.static(__dirname));
   app.use(express.static(path.join(__dirname, 'dist')));
