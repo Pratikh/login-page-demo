@@ -10,13 +10,13 @@ const uri = 'mongodb+srv://admin:admin@cluster0-mkysu.mongodb.net/';
 const app = express();
 app.use(bodyParser.json())
 app.use(cors());
-if(process.env.NODE_ENV === 'production'){ // If its deployed then serve static HTML pages.
+// if(process.env.NODE_ENV === 'production'){ // If its deployed then serve static HTML pages.
   app.use(express.static(__dirname));
   app.use(express.static(path.join(__dirname, 'dist')));
   app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
   });
-}
+// }
 
 app.get('/ping', function (req, res) {
  return res.send('pong');
