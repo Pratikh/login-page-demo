@@ -7,8 +7,8 @@ import {
 } from 'react-bootstrap';
 
 let HOST = 'http://localhost:8085';
-if(process.env.NODE_ENV === 'production'){ // If its deployed then serve static HTML pages.
-  HOST = window.location.host;
+if(process.env.APP_NODE_ENV === 'production'){ // If its deployed then serve static HTML pages.
+  HOST = window.location.origin;
 }
 const _ = require('lodash');
 
